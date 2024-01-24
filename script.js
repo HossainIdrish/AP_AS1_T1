@@ -1,26 +1,34 @@
-var map = L.map('map').setView([38.638363, -90.279093], 8);
+// Function to create a custom icon
+function createCustomIcon(iconUrl) {
+    return L.icon({
+        iconUrl: iconUrl,
+        iconSize: [100, 70], 
+        iconAnchor: [16, 32]
+    });
+}
 
-  // load a tile layer
- L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
+// Initialize the map
+var map = L.map('map').setView([38.6270, -90.1994], 13);
+
+// Add OpenStreetMap tiles to the map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+// Create markers and add them to the map
+var marker1 = L.marker([38.6247, -90.1848]).addTo(map);
+var marker2 = L.marker([38.6128, -90.2591]).addTo(map);
+var marker3 = L.marker([38.6383, -90.2928]).addTo(map);
+var marker4 = L.marker([38.6403, -90.2849]).addTo(map);
+var marker5 = L.marker([38.6339, -90.2004]).addTo(map);
 
-var marker1 = L.marker([38.62175, -90.33178]).addTo(map);
-var marker2 = L.marker([38.638363, -90.279093]).addTo(map);
-var marker3 = L.marker([38.625085, -90.186804]).addTo(map);
-var marker4 = L.marker([38.637653, -90.240328]).addTo(map);
-var marker5 = L.marker([38.614859, -90.325424]).addTo(map);
+// Bind popups to markers
+marker1.bindPopup("<b>Gateway Arch</b><br>The iconic 630-ft-tall monument.");
+marker2.bindPopup("<b>Missouri Botanical Garden</b><br>79 acres of horticultural display.");
+marker3.bindPopup("<b>St. Louis Zoo</b><br>A leading zoo with free admission.");
+marker4.bindPopup("<b>Forest Park</b><br>One of the largest urban parks in the USA.");
+marker5.bindPopup("<b>City Museum</b><br>A museum featuring repurposed architectural and industrial objects.");
 
-
-marker1.bindPopup("<b>Mapplewood Walmart</b><br>Super Store").openPopup();
-marker2.bindPopup("<b>Festival And Parking Plaza</b><br>Parking Lot").openPopup();
-marker3.bindPopup("<b>GateWay Arch</b><br>Tourist Place").openPopup();
-marker4.bindPopup("<b>Masjid Bilal</b><br>Mosque").openPopup();
-marker5.bindPopup("<b>Mapplewood Public Library</b><br>Library").openPopup();
 
 
